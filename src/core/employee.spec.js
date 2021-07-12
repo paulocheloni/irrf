@@ -17,7 +17,7 @@ function getEmployees () {
   return employees
 }
 
-test("it should be able to add employee", () => {
+test("it should be able to add an employee", () => {
   const employees = getEmployees()
   const newEmployee = {
     nome: "Letícia Aurora Ruenia",
@@ -31,7 +31,7 @@ test("it should be able to add employee", () => {
   expect(newEmployees).toStrictEqual([...employees, newEmployee])
 })
 
-test("it should be able to update employee", () => {
+test("it should be able to update an employee", () => {
   const employees = getEmployees()
   const newEmployee = {
     nome: "Letícia Aurora Farias",
@@ -46,7 +46,7 @@ test("it should be able to update employee", () => {
   expect(updatedEmployee.cpf).toStrictEqual(newEmployee.cpf)
 })
 
-test("it should be able to remove employee", () => {
+test("it should be able to remove an employee", () => {
   const employees = getEmployees()
   const oldEmployee = {
     nome: "Letícia Aurora Farias",
