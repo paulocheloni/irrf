@@ -1,3 +1,5 @@
+import fs from 'fs';
+
 /**
  *  @typedef {Object} employee
  *  @property {string} name
@@ -55,6 +57,19 @@ function listEmployees(employees) {
   return employees.map();
 }
 
+function getEmployees() {
+  let employees = [];
+
+  fs.readFile('./customer.json', 'utf8', (err, jsonString) => {
+    if (err) {
+      console.log('File read failed:', err);
+      return;
+    }
+    employees = JSON.parse(jsonString);
+  });
+  return employees;
+}
+
 export {
-  listEmployees, deleteEmployee, addEmployee, updateEmployee,
+  listEmployees, deleteEmployee, addEmployee, updateEmployee, getEmployees,
 };

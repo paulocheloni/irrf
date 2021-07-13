@@ -1,20 +1,25 @@
 import React from 'react';
 
-function Table() {
+function Table({ cols, rows }) {
   return (
     <div>
       <table>
         <thead>
-          <th>um</th>
-          <th>dois</th>
-          <th>tres</th>
+          <tr>
+            {cols.map((col) => (
+              <th key={col.name}>{col.name}</th>
+            ))}
+          </tr>
         </thead>
         <tbody>
-          <tr>
-            <th>1</th>
-            <th>2</th>
-            <th>3</th>
-          </tr>
+          {rows.map((row) => (
+            <tr key={row.name}>
+
+              {cols.map((col) => (
+                <th key={row[col.name]}>{row[col.name]}</th>
+              ))}
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
