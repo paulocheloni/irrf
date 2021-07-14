@@ -1,32 +1,49 @@
 {
   "env": {
     "browser": true,
-    "es2021": true,
+    "es2020": true,
     "node": true
   },
   "extends": [
-    "plugin:react/recommended",
-    "airbnb"
+  "plugin:react/recommended",
+  "airbnb",
+  "plugin:@typescript-eslint/recommended"
   ],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 12,
-    "sourceType": "module"
+    "ecmaVersion": 2020
+    
   },
   "plugins": [
-    "react"
-  ],
+    "react",
+    "react-hooks",
+    "@typescript-eslint"
+],
   "rules": {
-    "react/jsx-filename-extension": [
-      1,
-      {
-        "extensions": [
-          ".js",
-          ".jsx",
-          ".ts"
-        ]
-      }
-    ],
-    "react/react-in-jsx-scope": "off",
+  "react-hooks/rules-of-hooks": "error",
+  "react-hooks/exhaustive-deps": "warn",
+  "import/prefer-default-export": "off",
+  "import/no-unresolved": 0,
+  "@typescript-eslint/explicit-function-return-type": [
+    "error",
+    {
+      "allowExpressions": true
+    }
+  ],
+  
+  "import/extensions": [
+    "warn",
+    "ignorePackages",
+    {
+      "ts": "never",
+      "tsx": "never",
+      "js": "never",
+      "jsx": "never"
+    }
+  ],
+    "no-return-assign": 0,
+    "react/jsx-filename-extension": "off",
+    "react/react-in-jsx-scope": 1,
     "linebreak-style": [
       "error",
       "unix"
@@ -35,9 +52,12 @@
   "settings": {
     "import/resolver": {
       "node": {
-        "moduleDirectory": [
-          "node_modules",
-          "src/"
+        
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
         ]
       }
     }

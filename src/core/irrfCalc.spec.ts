@@ -1,5 +1,5 @@
 import {progressiveTable, discountByDependent, formatCurrency} from "../Data/irrfData"
-import calcDiscount from "../core/irrfCalc"
+import calcDiscount from "./irrfCalc"
 
 
 

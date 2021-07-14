@@ -1,12 +1,12 @@
-import React from 'react';
+import { ReactElement } from 'react';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
-import Home from '../views/Home';
+import Home from '../../presentation/views/Home';
 
-function Router() {
+function Router(): ReactElement {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/" default component={Home} />
+        <Route path="/" component={Home} />
       </Switch>
     </BrowserRouter>
   );

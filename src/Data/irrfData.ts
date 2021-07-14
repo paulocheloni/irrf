@@ -19,7 +19,7 @@ export const progressiveTable = ([
 
 export const discountByDependent = 164.56;
 
-export function formatCurrency(value) {
+export function formatCurrency(value: number) {
   const currencyFormater = new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL',
@@ -28,3 +28,4 @@ export function formatCurrency(value) {
   });
   return currencyFormater.format(value);
 }
+
