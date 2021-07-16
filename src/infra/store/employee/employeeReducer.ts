@@ -15,11 +15,13 @@ export const initStore = createAsyncThunk(REQUEST, () => {
   return employees;
 });
 
+
+
 interface EmployeeState {
   employees: Employee[];
 }
 
-const initialState: EmployeeState = { employees: [] };
+const initialState = { employees: [] } 
 /* using this method we reduce boilerplate-y code
  and we dont need to remenber what is the default case */
 const employeeSlice = createSlice({
@@ -38,6 +40,12 @@ const employeeSlice = createSlice({
     },
 
   },
+  extraReducers: (builder) => {
+    builder.addCase(initStore.fulfilled, (state, action) => {
+      // Add user to the state array
+      state.employees.push(action.payload)
+    })
+  }
 
 });
 /* with selector we avoid  using logic to connect redux with react or any other lib reducing

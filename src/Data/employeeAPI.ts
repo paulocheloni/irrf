@@ -1,4 +1,4 @@
-import fs from 'fs-extra';
+import data from './pessoas.json';
 import { Employee } from '../core/employee';
 
 interface APIData {
@@ -20,21 +20,10 @@ function dataAdapter(ApiData: APIData[]): Employee[] {
   }));
 }
 
-const employeeAPI = {
-  getEmployees(): APIData[] | [] {
-    const employees: []| APIData[] = [];
-    fs.readFile('./customer.json', (error, data: Buffer) => {
-      const parsedData = JSON.parse(data.toString('utf-8'));
 
-      employees.concat(parsedData);
-    });
-
-    return employees;
-  },
-};
 
 export function getEmployeesData(): Employee[] {
-  const employees = employeeAPI.getEmployees();
-  const formatedEmployees = dataAdapter(employees);
+  const formatedEmployees = dataAdapter(data);
+  console.log(formatedEmployees);
   return formatedEmployees;
 }
